@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div className="mx-auto h-screen pt-16  w-3/4 flex ">
       <CreateSpace />
-      <Addquestion />
+      {/* <Addquestion /> */}
       <div className="w-3/4 ">
         <div className="flex flex-col items-center">
           <div className="flex">
