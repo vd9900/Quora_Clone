@@ -1,35 +1,35 @@
 import React from "react";
 import Spaces from "../json/Createspace.json";
 
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineCompass } from "react-icons/ai";
 
 const CreateSpace = () => {
   return (
-    <div className=" w-44 p-4 mr-8">
-      <div className="fixed">
-        <div className="flex items-center gap-1 p-1 justify-center text-gray-600 bg-gray-200">
-          <AiOutlinePlus />
-          Create Space
-        </div>
-        <ul>
-          {Spaces.map((space, index) => {
-            return (
-              <li
-                className="flex gap-1 px-5 my-3 text-gray-600 items-center "
-                key={space.id}
-              >
-                <span>
-                  <img className="w-7" src={space.image} alt="" />
-                </span>
-                <p>{space.spaceName}</p>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="">
-          <span></span>
-          Discover Spaces
-        </div>
+    <div className="fixed w-40">
+      <div className="flex items-center gap-1 px-4 py-2 justify-start text-gray-600 bg-gray-100 text-sm rounded-sm cursor-pointer hover:bg-gray-200">
+        <AiOutlinePlus />
+        Create Space
+      </div>
+      <ul>
+        {Spaces.map((space, index) => {
+          return (
+            <li
+              className="hover:bg-gray-100 cursor-pointer text-xs flex gap-1 px-4 py-2 my-3 rounded-sm text-gray-600 items-center "
+              key={space.id}
+            >
+              <span>
+                <img className="w-6 rounded-sm" src={space.image} alt="" />
+              </span>
+              <p>{space.spaceName}</p>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="flex items-center text-gray-500 text-xs gap-1 px-4 py-2 cursor-pointer hover:bg-gray-100">
+        <span>
+          <AiOutlineCompass />{" "}
+        </span>
+        Discover Spaces
       </div>
     </div>
   );

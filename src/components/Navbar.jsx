@@ -18,8 +18,10 @@ const Navbar = () => {
       <nav className=" z-40 w-full h-14 shadow-md  bg-white  fixed">
         <div className="w-3/4 mx-auto h-full flex items-center  gap-5 justify-center ">
           <div className="flex items-center  justify-between ">
-            <span className="text-3xl  font-medium mr-5 text-red-700">Quora</span>
-            <div className="flex md:w-full lg:gap-4 items-center justify-evenly text-gray-800">
+            <span className="text-3xl  font-medium mr-5 text-red-700">
+              Quora
+            </span>
+            <div className="flex md:w-full lg:gap-4 items-center justify-evenly text-gray-600">
               <span className="p-3">
                 <a href="/">
                   <IoMdHome fontSize={25} />
@@ -42,9 +44,9 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center gap-5   ">
-            <div className="flex items-center justify-center bg-gray-200 rounded-md pl-2 h-10 w-52 gap-1">
+            <div className="hover:border hover:border-blue-600 text-gray-500 text-xs flex items-center justify-start border  border-gray-200 rounded-sm pl-2 h-9 md:w-60 sm:50 lg:w-72 gap-1">
               <span>
-                <BiSearch  fontSize={20}/>
+                <BiSearch fontSize={20} />
               </span>
               <input
                 type="text"
@@ -52,8 +54,12 @@ const Navbar = () => {
                 placeholder="Search Quora"
               />
             </div>
-            <div className="md:hidden lg:flex flex items-center justify-center rounded-full border-2 font-medium cursor-pointer h-10 w-28">Try Quora+</div>
-            <div className="bg-blue-600 w-8 h-8 font-medium flex items-center cursor-pointer justify-center rounded-full text-white">V</div>
+            <div className="md:hidden lg:flex flex items-center justify-center rounded-full border-2 font-medium text-gray-500 text-sm cursor-pointer h-8 py-1 w-28">
+              Try Quora+
+            </div>
+            <div className="bg-blue-600 w-8 h-8 font-medium flex items-center cursor-pointer justify-center rounded-full text-white">
+              V
+            </div>
             <span className="md:hidden block lg:block cursor-pointer">
               <TfiWorld fontSize={24} />
             </span>
