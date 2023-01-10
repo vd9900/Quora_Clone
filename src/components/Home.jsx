@@ -56,7 +56,7 @@ const Home = () => {
                 </div>
                 <div className="flex gap-1 text-gray-500">
                   <span>Answered by Saraveran</span>
-                  <span>Dec 27</span>
+                  <span>• Dec 27</span>
                 </div>
               </div>
             </div>

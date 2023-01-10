@@ -3,7 +3,7 @@ import notifications from "../json/notifications.json";
 
 const Filter = () => {
   return (
-    <div className="w-48 px-4">
+    <div className="px-4">
       <div className="border-b border-gray-300 px-3 py-2 font-medium">Filters</div>
       <ul>
         {notifications.map((noti) => {
