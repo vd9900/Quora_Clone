@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdHome, IoIosArrowDown } from "react-icons/io";
 import { RiPagesFill } from "react-icons/ri";
 import { RxPencil2 } from "react-icons/rx";
@@ -6,6 +6,7 @@ import { HiUserGroup } from "react-icons/hi";
 import { BsBell } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { TfiWorld } from "react-icons/tfi";
+import Addquestion from "./Addquestion";
 // const options = [
 //     {
 //         logo
@@ -13,6 +14,10 @@ import { TfiWorld } from "react-icons/tfi";
 // ]
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  function toggle(){
+    setOpen(!open)
+  }
   return (
     <div>
       <nav className=" z-40 w-full h-14 shadow-md  bg-white  fixed">
@@ -28,7 +33,9 @@ const Navbar = () => {
                 </a>
               </span>
               <span className="p-3">
-                <RiPagesFill fontSize={25} />
+                <a href="/following">
+                  <RiPagesFill fontSize={25} />
+                </a>
               </span>
               <span className="p-3">
                 <RxPencil2 fontSize={25} />
@@ -63,7 +70,10 @@ const Navbar = () => {
             <span className="md:hidden block lg:block cursor-pointer">
               <TfiWorld fontSize={24} />
             </span>
-            <div className="bg-red-700 flex p-1 cursor-pointer text-white items-center w-36 h-8 rounded-full  justify-center">
+            <div
+              onClick={() =>toggle() }
+              className="bg-red-700 flex p-1 cursor-pointer text-white items-center w-36 h-8 rounded-full  justify-center"
+            >
               <span className="p-1">Add question</span>
               <span className=" pt-1 h-full ">
                 <IoIosArrowDown fontSize={18} />
@@ -72,6 +82,12 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* <Addquestion /> */}
+      {open?
+      <div className="fixed z-40 top-0 right-0 bg-black bg-opacity-50 w-screen h-screen">
+        <Addquestion close={toggle} />
+      </div>:null
+      }
     </div>
   );
 };

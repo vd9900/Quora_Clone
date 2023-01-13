@@ -16,7 +16,6 @@ const Home = () => {
       <div className="hidden sm:block w-44  mr-0">
         <CreateSpace />
       </div>
-      {/* <Addquestion /> */}
       <div className="mx-auto sm:mx-0 lg:w-7/12 sm:px-4">
         <div className="text-gray-400 h-auto flex gap-3 p-2 px-6  flex-col items-center  border border-gray-300 sm:rounded-md">
           <div className="flex items-center justify-evenly w-full gap-4">
@@ -46,7 +45,13 @@ const Home = () => {
         <div className="my-4 pt-2  shadow-lg border border-gray-300 rounded-md">
           <div className="flex px-4 items-center justify-between w-full py-1">
             <div className="flex items-center gap-2">
-              <span className="w-9 h-9"><img className="rounded-md" src="https://www.amazingscience.news/wp-content/uploads/2017/11/brain2.jpg" alt="" /></span>
+              <span className="w-9 h-9">
+                <img
+                  className="rounded-md"
+                  src="https://www.amazingscience.news/wp-content/uploads/2017/11/brain2.jpg"
+                  alt=""
+                />
+              </span>
               <div className="text-xs pb-1">
                 <div className="flex gap-2">
                   <p className="font-medium hover:underline hover:underline-offset-1 cursor-pointer">
@@ -102,7 +107,7 @@ const Home = () => {
               <span className="text-xs">125</span>
             </span>
             <span className="flex gap-1 cursor-pointer items-center">
-              <MdOutlineCached  fontSize={20}/>
+              <MdOutlineCached fontSize={20} />
               <span className="text-xs">125</span>
             </span>
             <span className="ml-auto cursor-pointer">

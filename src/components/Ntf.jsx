@@ -2,6 +2,7 @@ import React from "react";
 import Filter from "./Filters";
 import { BsFillBellSlashFill } from "react-icons/bs";
 import { BsThreeDots } from "react-icons/bs";
+import { MdOutlineGroupOff } from "react-icons/md";
 
 const Notification = () => {
   return (
@@ -21,7 +22,7 @@ const Notification = () => {
             </div>
           </div>
           {/* no message component */}
-          <div className="hidden flex flex-col text-gray-500 h-full items-center justify-center">
+          <div className="flex flex-col text-gray-500 h-full items-center justify-center">
             <span>
               <BsFillBellSlashFill fontSize={60} />
             </span>
@@ -31,7 +32,7 @@ const Notification = () => {
             </span>
           </div>
           {/* Question components */}
-          <div className="p-3 cursor-pointer bg-gray-200 flex gap-3">
+          <div className="hidden p-3 cursor-pointer bg-gray-200 flex gap-3">
             <span className="w-12 h-12 cover-fit">
               <img
                 className="rounded-md"
@@ -51,7 +52,7 @@ const Notification = () => {
             </div>
           </div>
           {/* Question & Answer components */}
-          <div className="p-3 cursor-pointer bg-gray-200 flex gap-3">
+          <div className="hidden p-3 cursor-pointer bg-gray-200 flex gap-3">
             <span className="w-12 h-12 cover-fit">
               <img
                 className="rounded-md"
@@ -70,7 +71,7 @@ const Notification = () => {
               <div className="font-bold">
                 Will you be getting a call from IIFT this year?
               </div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-gray-500 ">
                 Hello Folks , Do join/ Follow our LinkedIn page to get more
                 updates regarding job openings. https://www.linkedin.co...
               </div>
