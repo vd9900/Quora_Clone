@@ -5,22 +5,32 @@ import { MdPlayArrow } from "react-icons/md";
 
 const Addquestion = (props) => {
   const toggle = props.close;
-  // const [Close, setClose] = useState(false);
+  const [addBorderToBottom, setaddBorderToBottom] = useState(false);
   return (
-    <div className="py-4  bg-white bg-opacity-100 absolute  rounded-md w-6/12 h-3/4  top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+    <div className="flex flex-col pt-4  bg-white bg-opacity-100 absolute  rounded-md w-6/12 h-3/4  top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
       <div className="px-4 flex justify-start">
         <span
           onClick={() => toggle()}
           className="cursor-pointer text-gray-500 font-sm"
         >
-          <IoMdClose fontSize={25} />
+          <IoMdClose className={""} fontSize={25} />
         </span>
       </div>
       <div className="flex justify-between items-center px-1">
-        <div className="p-4  border-b-4 border-blue-500  font-semibold  w-full flex items-center justify-center">
+        <div
+          onClick={() => setaddBorderToBottom(false)}
+          className={`${
+            !addBorderToBottom ? "border-b-4 border-blue-500" : ""
+          } cursor-pointer p-4    font-semibold  w-full h-10 flex items-center justify-center`}
+        >
           Add question
         </div>
-        <div className="p-4  font-semibold  w-full flex items-center justify-center">
+        <div
+          onClick={() => setaddBorderToBottom(true)}
+          className={`${
+            addBorderToBottom ? "border-b-4 border-blue-500" : ""
+          } cursor-pointer p-4    font-semibold  w-full h-10 flex items-center justify-center`}
+        >
           Create post
         </div>
       </div>
@@ -59,6 +69,10 @@ const Addquestion = (props) => {
             placeholder={`Start your question with "What", "How", "Why", etc.`}
           />
         </div>
+      </div>
+      <div className="flex items-center justify-end gap-2 h-16 border-t border-gray-300 mt-auto ">
+        <span>cancel</span>
+        <span>Add question</span>
       </div>
     </div>
   );
