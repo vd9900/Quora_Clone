@@ -22,7 +22,7 @@ const Notification = () => {
             </div>
           </div>
           {/* no message component */}
-          <div className="flex flex-col text-gray-500 h-full items-center justify-center">
+          <div className="px-3 flex flex-col text-gray-500 h-full items-center justify-center">
             <span>
               <BsFillBellSlashFill fontSize={60} />
             </span>

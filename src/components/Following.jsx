@@ -9,7 +9,7 @@ const Following = () => {
         <CreateSpace />
       </div>
       {/* no following component */}
-      <div className="md:w-7/12 w-full max-md:mx-auto h-full flex flex-col text-gray-500 items-center justify-center">
+      <div className="px-3 md:w-7/12 w-full max-md:mx-auto h-full flex flex-col text-gray-500 items-center justify-center">
         <span>
           <MdOutlineGroupOff fontSize={60} />
         </span>
