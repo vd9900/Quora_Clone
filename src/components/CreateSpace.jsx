@@ -8,7 +8,7 @@ const CreateSpace = () => {
     <div className="fixed w-40">
       <div className="flex items-center gap-1 px-4 py-2 justify-start text-gray-600 bg-gray-100 text-sm rounded-sm cursor-pointer hover:bg-gray-200">
         <AiOutlinePlus />
-        Create Space
+          Create Space
       </div>
       <ul>
         {Spaces.map((space, index) => {

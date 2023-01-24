@@ -16,18 +16,30 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const inputRef = useRef()
+  const inputRefB = useRef();
+  const inputRefS = useRef();
 
   function toggle() {
     setOpen(!open);
   }
-  const clickedButtonBorder = (e) =>{
-    for(let i=0; i<inputRef.current.children.length; i++){
-      inputRef.current.children[i].classList.remove("border-b-4")
+
+
+
+  const clickedButtonBorderS = (e) => {
+    for (let i = 0; i < inputRefS.current.children.length; i++) {
+      inputRefS.current.children[i].classList.remove("border-b-4");
     }
-    e.target.classList.add("border-b-4")
-    console.log(e)
-  }
+    e.currentTarget.classList.add("border-b-4");
+    // console.log(inputRef.current.children[0].classList );
+  };
+  
+  const clickedButtonBorderB = (e) => {
+    for (let i = 0; i < inputRefB.current.children.length; i++) {
+      inputRefB.current.children[i].classList.remove("border-b-4");
+    }
+    e.currentTarget.classList.add("border-b-4");
+    // console.log(inputRef.current.children[0].classList );
+  };
   return (
     <div>
       <nav className=" z-40 w-full sm:h-14 shadow-md  bg-white  fixed">
@@ -37,26 +49,26 @@ const Navbar = () => {
             <span className="text-3xl  font-medium mr-5 text-red-700">
               Quora
             </span>
-            <div className="flex md:w-full lg:gap-4 items-center justify-evenly text-gray-600">
-              <span className="p-3">
+            <div ref={inputRefB} className="flex md:w-full lg:gap-4 items-center justify-evenly text-gray-600">
+              <span onClick={clickedButtonBorderB} className="border-b-red-600 p-3">
                 <Link to={"/"}>
-                  <IoMdHome fontSize={25} onClick={clickedButtonBorder}  />
+                  <IoMdHome fontSize={25} />
                 </Link>
               </span>
-              <span className="p-3">
+              <span onClick={clickedButtonBorderB} className="border-b-red-600 p-3">
                 <Link to={"/following"}>
-                  <RiPagesFill fontSize={25} onClick={clickedButtonBorder} />
+                  <RiPagesFill fontSize={25} />
                 </Link>
               </span>
-              <span className="p-3">
-                <RxPencil2 fontSize={25} onClick={clickedButtonBorder} />
+              <span onClick={clickedButtonBorderB} className="border-b-red-600 cursor-pointer p-3">
+                <RxPencil2 fontSize={25} />
               </span>
-              <span>
-                <HiUserGroup fontSize={25} onClick={clickedButtonBorder} />
+              <span onClick={clickedButtonBorderB} className="p-3 border-b-red-600 cursor-pointer">
+                <HiUserGroup fontSize={25} />
               </span>
-              <span className="p-3">
+              <span onClick={clickedButtonBorderB} className="border-b-red-600 p-3">
                 <Link to={"/notifications"}>
-                  <BsBell fontSize={25} onClick={clickedButtonBorder} />
+                  <BsBell fontSize={25} />
                 </Link>
               </span>
             </div>
@@ -64,7 +76,7 @@ const Navbar = () => {
           <div className="flex items-center gap-5   ">
             <div className="hover:border hover:border-blue-600 text-gray-500 text-xs flex items-center justify-start border  border-gray-200 rounded-sm pl-2 h-9 md:w-60 sm:50 lg:w-72 gap-1">
               <span>
-                <BiSearch fontSize={20} onClick={clickedButtonBorder} />
+                <BiSearch fontSize={20} />
               </span>
               <input
                 type="text"
@@ -79,7 +91,7 @@ const Navbar = () => {
               V
             </div>
             <span className="md:hidden block lg:block cursor-pointer">
-              <TfiWorld fontSize={24} onClick={clickedButtonBorder} />
+              <TfiWorld fontSize={24} />
             </span>
             <div
               onClick={() => toggle()}
@@ -87,7 +99,7 @@ const Navbar = () => {
             >
               <span className="">Add question</span>
               <span className=" pt-1 h-full ">
-                <IoIosArrowDown fontSize={18} onClick={clickedButtonBorder} />
+                <IoIosArrowDown fontSize={18} />
               </span>
             </div>
           </div>
@@ -96,7 +108,7 @@ const Navbar = () => {
         <div className="block sm:hidden">
           <div className="flex h-10 items-center justify-between px-4 text-white bg-red-700">
             <span className="flex items-center gap-1 cursor-pointer">
-              <BiSearch fontSize={22} onClick={clickedButtonBorder} />
+              <BiSearch fontSize={22} />
               Search
             </span>
             <span className="text-2xl p-1 cursor-pointer">Quora</span>
@@ -104,39 +116,60 @@ const Navbar = () => {
               onClick={() => toggle()}
               className="flex items-center gap-1 cursor-pointer"
             >
-              <RiQuestionnaireLine fontSize={22} onClick={clickedButtonBorder} />
+              <RiQuestionnaireLine fontSize={22} />
               Add
             </span>
           </div>
-          <div className="flex h-10 text-gray-500 flex-1" ref={inputRef}>
-            <span className=" grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-            <Link to={"/"}>
-                  <IoMdHome fontSize={26} onClick={clickedButtonBorder} />
-                </Link>
+          <div className="flex h-10 text-gray-500 flex-1" ref={inputRefS}>
+            <div
+              onClick={clickedButtonBorderS}
+              className=" grow  rounded-sm  border-b-4 border-b-red-600 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <Link to={"/"}>
+                <IoMdHome fontSize={26} />
+              </Link>
+            </div>
+            <span
+              onClick={clickedButtonBorderS}
+              className=" grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <Link to={"/following"}>
+                <RiPagesFill fontSize={26} />
+              </Link>
             </span>
-            <span className=" grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-            <Link to={"/following"}>
-                  <RiPagesFill fontSize={26} onClick={clickedButtonBorder} />
-                </Link>
+            <span
+              onClick={clickedButtonBorderS}
+              className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <RxPencil2 fontSize={26} />
             </span>
-            <span className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-              <RxPencil2 fontSize={26} onClick={clickedButtonBorder} />
+            <span
+              onClick={clickedButtonBorderS}
+              className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <HiUserGroup fontSize={26} />
             </span>
-            <span className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-              <HiUserGroup fontSize={26} onClick={clickedButtonBorder} />
+            <span
+              onClick={clickedButtonBorderS}
+              className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <Link to={"/notifications"}>
+                <BsBell fontSize={26} />
+              </Link>
             </span>
-            <span className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-            <Link to={"/notifications"}>
-                  <BsBell fontSize={26} onClick={clickedButtonBorder} />
-                </Link>
-            </span>
-            <span className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
+            <span
+              onClick={clickedButtonBorderS}
+              className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
               <div className="bg-blue-600 w-7 h-7 font-medium flex items-center cursor-pointer justify-center rounded-full text-white">
                 V
               </div>
             </span>
-            <span className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200">
-              <TfiWorld fontSize={26} onClick={clickedButtonBorder} />
+            <span
+              onClick={clickedButtonBorderS}
+              className="grow  rounded-sm   border-red-700 flex items-center justify-center border-r border-r-gray-200"
+            >
+              <TfiWorld fontSize={26} />
             </span>
           </div>
         </div>

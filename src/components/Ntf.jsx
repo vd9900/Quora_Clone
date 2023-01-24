@@ -1,8 +1,10 @@
 import React from "react";
 import Filter from "./Filters";
+import notifications from '../json/notifications.json'
 import { BsFillBellSlashFill } from "react-icons/bs";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineGroupOff } from "react-icons/md";
+
 
 const Notification = () => {
   return (
@@ -22,7 +24,7 @@ const Notification = () => {
             </div>
           </div>
           {/* no message component */}
-          <div className="px-3 flex flex-col text-gray-500 h-full items-center justify-center">
+          <div className="hidden px-3 flex flex-col text-gray-500 h-full items-center justify-center">
             <span>
               <BsFillBellSlashFill fontSize={60} />
             </span>
@@ -32,25 +34,33 @@ const Notification = () => {
             </span>
           </div>
           {/* Question components */}
-          <div className="hidden p-3 cursor-pointer bg-gray-200 flex gap-3">
-            <span className="w-12 h-12 cover-fit">
-              <img
-                className="rounded-md"
-                src="https://images.indianexpress.com/2020/10/148841-clraytzonv-1602133322.jpg"
-                alt=""
-              />
-            </span>
-            <div className="w-full">
-              <div className="flex text-xs text-gray-500 gap-1 item-center">
-                New from Saraveran <span>• December 25</span>
-                <span className="ml-auto cursor-pointer">
-                  <BsThreeDots fontSize={22} />
+          {notifications.map(notification => {
+            return (
+
+              <div key={notification.notificationId} className=" p-3 cursor-pointer bg-gray-200 flex gap-3">
+                <span className="w-12 h-12 cover-fit">
+                  <img
+                    className="rounded-md"
+                    src={notification.profile}
+                    alt=""
+                  />
                 </span>
+                <div className="w-full text-sm">
+                  <div className="flex text-xs text-gray-500 gap-1 item-center">
+                   {notification.name} <span>{notification.date}</span>
+                    <span className="ml-auto cursor-pointer">
+                      <BsThreeDots fontSize={22} />
+                    </span>
+                  </div>
+                  <div className="font-bold">{notification.title}</div>
+                  <div>{notification.body}</div>
+                </div>
               </div>
-              <div className="font-bold">Saraveran asked a question</div>
-              <div>Can you share a fact that no-one knows about?</div>
-            </div>
-          </div>
+            )
+          })
+
+          }
+
           {/* Question & Answer components */}
           <div className="hidden p-3 cursor-pointer bg-gray-200 flex gap-3">
             <span className="w-12 h-12 cover-fit">
