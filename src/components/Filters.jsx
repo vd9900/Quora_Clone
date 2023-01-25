@@ -1,15 +1,21 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import classNames from 'classnames';
 import notifications from "../json/notifications.json";
+import { FilterContext } from "../context/filterContext/FilterContext";
 
 const Filter = () => {
   const inputRef = useRef();
+
+  const value = useContext(FilterContext)
+
   const addBorderToCo = (e) => {
     for (let i = 0; i < inputRef.current.children.length; i++) {
-      inputRef.current.children[i].classList.remove('border-r-4',"bg-red-50")
+      inputRef.current.children[i].classList.remove('border-r-4', "bg-red-50")
       // inputRef.current.children[i].classList.remove("bg-red-50 ")
     }
-    e.currentTarget.classList.add('border-r-4','bg-red-50')
+    e.currentTarget.classList.add('border-r-4', 'bg-red-50')
+    value.setsearchValue(e.currentTarget.innerText)
+    console.log(e.currentTarget.innerText)
 
   };
   return (

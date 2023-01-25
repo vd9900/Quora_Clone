@@ -15,6 +15,7 @@ import { FilterContext } from "../context/filterContext/FilterContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const input = useRef();
   const inputRefB = useRef();
   const inputRefS = useRef();
 
@@ -32,16 +33,22 @@ const Navbar = () => {
     }
     e.currentTarget.classList.add("border-b-4");
     activeValue.setsearchValue('')
-    
+
     // console.log(inputRef.current.children[0].classList );
   };
-  
+  const searchPostByInput = (e) => {
+    activeValue.setsearchValue(e.currentTarget.value)
+    console.log(e.currentTarget.value)
+  }
+
   const clickedButtonBorderB = (e) => {
     for (let i = 0; i < inputRefB.current.children.length; i++) {
       inputRefB.current.children[i].classList.remove("border-b-4");
     }
     e.currentTarget.classList.add("border-b-4");
     activeValue.setsearchValue('')
+    input.current.value = '';
+    console.log(window.location.pathname);
     // console.log(inputRef.current.children[0].classList );
   };
   return (
@@ -84,7 +91,10 @@ const Navbar = () => {
               </span>
               <input
                 type="text"
-                className=" bg-transparent focus:outline-none"
+                ref={input}
+
+                onChange={searchPostByInput}
+                className=" bg-transparent focus:outline-none disabled"
                 placeholder="Search Quora"
               />
             </div>

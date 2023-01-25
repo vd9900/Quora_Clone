@@ -49,7 +49,7 @@ const Home = () => {
         {/* Post section */}
         {
           posts.filter((post) => {
-           return post.catogory.includes(searchValue.searchValue)
+           return post.catogory.includes(searchValue.searchValue) || post.title.includes(searchValue.searchValue)
           }).map(post => {
 
             return (
