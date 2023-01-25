@@ -10,8 +10,12 @@ import { MdOutlineCached } from "react-icons/md";
 import { TbArrowBigTop, TbArrowBigDown } from "react-icons/tb";
 import Addquestion from "./Addquestion";
 import posts from '../json/posts.json'
+import { useContext } from "react";
+import { FilterContext } from "../context/filterContext/FilterContext";
 
 const Home = () => {
+  const searchValue = useContext(FilterContext)
+  console.log(searchValue);
   return (
     <div className="mx-auto h-auto pt-20 lg:w-8/12 flex ">
       <div className="hidden sm:block w-44  mr-0">
@@ -44,7 +48,10 @@ const Home = () => {
         </div>
         {/* Post section */}
         {
-          posts.map(post => {
+          posts.filter((post) => {
+           return post.catogory.includes(searchValue.searchValue)
+          }).map(post => {
+
             return (
               <div key={post.userId} className="my-4 pt-2  shadow-lg border border-gray-300 rounded-md">
                 <div className="flex px-4 items-center justify-between w-full py-1">

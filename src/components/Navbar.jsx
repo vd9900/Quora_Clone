@@ -8,16 +8,17 @@ import { BiSearch } from "react-icons/bi";
 import { TfiWorld } from "react-icons/tfi";
 import Addquestion from "./Addquestion";
 import { Link } from "react-router-dom";
-// const options = [
-//     {
-//         logo
-//     }
-// ]
+import { useContext } from "react";
+import { FilterContext } from "../context/filterContext/FilterContext";
+
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const inputRefB = useRef();
   const inputRefS = useRef();
+
+  const activeValue = useContext(FilterContext)
 
   function toggle() {
     setOpen(!open);
@@ -30,6 +31,8 @@ const Navbar = () => {
       inputRefS.current.children[i].classList.remove("border-b-4");
     }
     e.currentTarget.classList.add("border-b-4");
+    activeValue.setsearchValue('')
+    
     // console.log(inputRef.current.children[0].classList );
   };
   
@@ -38,6 +41,7 @@ const Navbar = () => {
       inputRefB.current.children[i].classList.remove("border-b-4");
     }
     e.currentTarget.classList.add("border-b-4");
+    activeValue.setsearchValue('')
     // console.log(inputRef.current.children[0].classList );
   };
   return (
