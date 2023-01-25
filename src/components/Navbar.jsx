@@ -95,7 +95,7 @@ const Navbar = () => {
 
                 onChange={searchPostByInput}
                 className=" bg-transparent focus:outline-none disabled"
-                placeholder="Search Quora"
+                placeholder="Search Quora vinith"
               />
             </div>
             <div className="md:hidden lg:flex flex items-center justify-center rounded-full border-2 font-medium text-gray-500 text-sm cursor-pointer h-8 py-1 w-28">
